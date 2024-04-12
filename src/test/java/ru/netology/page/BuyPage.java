@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class BuyPage {
+public class  BuyPage {
     private SelenideElement heading = $$("h3").get(1).shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Оплата по карте"));
     private SelenideElement cardNumber = $(".input [placeholder = '0000 0000 0000 0000']");
     private SelenideElement monthField = $(".input [placeholder = '08']");
