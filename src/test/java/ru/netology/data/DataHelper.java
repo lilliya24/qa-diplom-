@@ -23,29 +23,28 @@ public class DataHelper {
     }
 
 
-    public static String generateRandomCardNumber(){
-        return (fakerEn.numerify("################"));
-    }
+    //public static String generateRandomCardNumber(){
+      //  return (fakerEn.numerify("################"));
+  //  }
     public static String month() {
         Random random = new Random();
         int monthValue = random.nextInt(12) + 1;
         String formattedMonth = String.format("%02d", monthValue);
         return formattedMonth;
     }
-    public static String generateMonth() {
-        Random random = new Random();
-        int monthNumber = random.nextInt(3) + 1;
-        return String.valueOf(monthNumber);
-    }
+    //public static String generateMonth() {
+       // Random random = new Random();
+        //int monthNumber = random.nextInt(3) + 1;
+       // return String.valueOf(monthNumber);
+    //}
+     //public static String lastMonth(String pattern){
+        //LocalDate lastMonth= LocalDate.now().minusMonths(2);
+        //return lastMonth.format(DateTimeFormatter.ofPattern(pattern));
+    //}
 
-    public static String lastMonth(String pattern){
-        LocalDate lastMonth= LocalDate.now().minusMonths(2);
-        return lastMonth.format(DateTimeFormatter.ofPattern(pattern));
-    }
-
-    public static String thisYear(String pattern) {
-        return LocalDate.now().format(DateTimeFormatter.ofPattern(pattern));
-    }
+    //public static String thisYear(String pattern) {
+       // return LocalDate.now().format(DateTimeFormatter.ofPattern(pattern));
+   // }
 
     public static String lastYear(String pattern) {
         LocalDate lastYear = LocalDate.now().minusYears(1);
@@ -57,15 +56,15 @@ public class DataHelper {
         Year futureYear = currentYear.plusYears(5);
         return futureYear.format(DateTimeFormatter.ofPattern(pattern));
     }
-    public static String futureMoreThanFiveYears(String pattern) {
-        Year currentYear = Year.now();
-        Year futureYear = currentYear.plusYears(10);
-        return futureYear.format(DateTimeFormatter.ofPattern(pattern));
-    }
+   // public static String futureMoreThanFiveYears(String pattern) {
+        //Year currentYear = Year.now();
+       // Year futureYear = currentYear.plusYears(10);
+       // return futureYear.format(DateTimeFormatter.ofPattern(pattern));
+   // }
 
-    public static String randomYear() {
-        return fakerEn.numerify("#");
-    }
+   // public static String randomYear() {
+        //return fakerEn.numerify("#");
+   // }
 
     public static String ownerInfo() {
         String firstname = fakerRu.name().firstName();
@@ -85,9 +84,9 @@ public class DataHelper {
     public static String cvcInfo() {
         return fakerRu.numerify("###");
     }
-    public static String cvcNumber(){
-        return fakerRu.numerify("#");
-    }
+    //public static String cvcNumber(){
+      //  return fakerRu.numerify("#");
+   // }
     public static String cvcDoubleNumber(){
         return fakerRu.numerify("##");
     }

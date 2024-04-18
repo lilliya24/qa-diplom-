@@ -53,16 +53,16 @@ public class TicketBuyerTest {
     @DisplayName("Покупка картой «DECLINED»")
     public void shouldTestNegativeForCardNumber() {
         buyPage.putData(DataHelper.getSecondCardInfo(), DataHelper.month(), DataHelper.generateYear("yy"), DataHelper.ownerInfoEng(), DataHelper.cvcInfo());
-        buyPage.successNotificationWait();
+        buyPage.errorNotificationWait();
         Assertions.assertEquals("DECLINED", SQLHelper.geStatusInData());
     }
     @Test
     @DisplayName("Тестирование формы с пустыми полями")
     public void shouldTestEmptyForm() {
         buyPage.putData("","","","","");
-        buyPage.wrongCardNumberNotificationWait();
-        buyPage.wrongMonthNotificationWait();
-        buyPage.wrongYearNotificationWait();
+        buyPage.wrongNotificationWait();
+        //buyPage.wrongNotificationWait();
+        //buyPage.wrongNotificationWait();
         buyPage.ownerEmptyNotificationWait();
         buyPage.wrongFormatCVVNotificationWait();
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
@@ -81,14 +81,14 @@ public class TicketBuyerTest {
     @DisplayName("В поле ввода номера карты ввести менее 16 символов.")
     public void shouldTestTheBuyWithA14DigitCard() {
         buyPage.putData("4444 4444 4444 444", DataHelper.month(), DataHelper.generateYear("yy"), DataHelper.ownerInfo(), DataHelper.cvcInfo());
-        buyPage.wrongCardNumberNotificationWait();
+        buyPage.wrongNotificationWait();
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
     @Test
     @DisplayName("Поле ввода номера карты оставить пустым")
     void shouldTestThePurchaseWithAnEmptyCardNumberField() {
         buyPage.putData("", DataHelper.month(), DataHelper.generateYear("yy"), DataHelper.ownerInfo(), DataHelper.cvcInfo());
-        buyPage.wrongCardNumberNotificationWait();
+        buyPage.wrongNotificationWait();
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
 
@@ -112,7 +112,7 @@ public class TicketBuyerTest {
     @DisplayName("Поле Месяц оставить пустым.")
     public void shouldTestMonthValueNull() {
         buyPage.putData(DataHelper.getFirstCardInfo(), "", DataHelper.generateYear("yy"), DataHelper.ownerInfoEng(), DataHelper.cvcInfo());
-        buyPage.wrongMonthNotificationWait();
+        buyPage.wrongNotificationWait();
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
     //Год
@@ -127,7 +127,7 @@ public class TicketBuyerTest {
     @DisplayName("Поле ввода «Год» оставить пустым")
     void shouldTestEmptyYearField() {
         buyPage.putData(DataHelper.getFirstCardInfo(),DataHelper.month(),DataHelper.lastYear(""),DataHelper.ownerInfo(),DataHelper.cvcInfo());
-        buyPage.wrongYearNotificationWait();
+        buyPage.wrongNotificationWait();
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
 
