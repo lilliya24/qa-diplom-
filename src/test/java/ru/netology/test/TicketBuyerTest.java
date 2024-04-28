@@ -102,7 +102,7 @@ public class TicketBuyerTest {
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
     @Test
-    @DisplayName("Month value is 00")
+    @DisplayName("В поле месяц ввести 00")
     public void shouldTestMonthNumber00() {
         buyPage.putData(DataHelper.getFirstCardInfo(),"00",DataHelper.generateYear("yy"),DataHelper.ownerInfoEng(),DataHelper.cvcInfo());
         buyPage.errorNotificationWait();
@@ -147,7 +147,7 @@ public class TicketBuyerTest {
         Assertions.assertNull(SQLHelper.getStatusForCreditForm());
     }
     @Test
-    @DisplayName("В поле владелец ввести первую циыру имени и фамилии")
+    @DisplayName("В поле владелец ввести первую букву имени и фамилии")
     public void shouldTestOwnerWithTwoLetters() {
         buyPage.putData(DataHelper.getFirstCardInfo(),DataHelper.month(),DataHelper.generateYear("yy"),"S H",DataHelper.cvcInfo());
         buyPage.incorrectFormatOwnerNotificationWait();

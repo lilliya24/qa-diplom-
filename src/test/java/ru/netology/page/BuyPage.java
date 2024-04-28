@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class  BuyPage {
-    private SelenideElement heading = $$("h3").get(1).shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Оплата по карте"));
+    private final SelenideElement heading;
     private SelenideElement cardNumber = $(".input [placeholder = '0000 0000 0000 0000']");
     private SelenideElement monthField = $(".input [placeholder = '08']");
     private SelenideElement yearField = $(".input [placeholder = '22']");
@@ -21,8 +21,9 @@ public class  BuyPage {
     private SelenideElement CVCField = $(".input [placeholder = '999']");
 
 
-    private SelenideElement successMessage = $$(".notification__content").find(text("Операция одобрена Банком."));
-    private SelenideElement errorMessage = $$(" .notification__content").find(text("Ошибка! Банк отказал в проведении операции."));
+    private final SelenideElement successMessage;
+    private final SelenideElement errorMessage;
+
     private SelenideElement incorrectFormat = $(byText("Неверный формат"));
     private SelenideElement validityError = $(byText("Неверно указан срок действия карты"));
     private SelenideElement cardExpiredError = $(byText("Истёк срок действия карты"));
@@ -31,6 +32,9 @@ public class  BuyPage {
 
 
     public BuyPage() {
+        heading = $$("h3").get(1).shouldBe(visible, Duration.ofSeconds(15)).shouldHave(exactText("Оплата по карте"));
+        successMessage = $$(".notification__content").find(text("Операция одобрена Банком."));
+        errorMessage = $$(" .notification__content").find(text("Ошибка! Банк отказал в проведении операции."));
         heading.shouldBe(visible);
     }
 
@@ -52,27 +56,27 @@ public class  BuyPage {
     }
 
     public void wrongNotificationWait() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(20));
+        incorrectFormat.shouldBe(visible);
     }
 
     public void validityErrorNotificationWait() {
-        validityError.shouldBe(visible, Duration.ofSeconds(20));
+        validityError.shouldBe(visible);
     }
 
     public void expiredCardNotificationWait() {
-        cardExpiredError.shouldBe(visible, Duration.ofSeconds(20));
+        cardExpiredError.shouldBe(visible);
     }
 
     public void ownerEmptyNotificationWait() {
-        emptyOwnerError.shouldBe(visible, Duration.ofSeconds(20));
+        emptyOwnerError.shouldBe(visible);
     }
 
     public void incorrectFormatOwnerNotificationWait() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(20));
+        incorrectFormat.shouldBe(visible);
     }
 
     public void wrongFormatCVVNotificationWait() {
-        incorrectFormat.shouldBe(visible, Duration.ofSeconds(20));
+        incorrectFormat.shouldBe(visible);
     }
 }
 
