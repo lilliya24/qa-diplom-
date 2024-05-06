@@ -19,7 +19,7 @@
 
 
 ![картинка](https://github.com/lilliya24/qa-diplom-/blob/main/scrin/Screenshot_6.png)
-![картинка](https://github.com/lilliya24/qa-diplom-/blob/main/scrin/Screenshot_6.png)
+
 
 
 
