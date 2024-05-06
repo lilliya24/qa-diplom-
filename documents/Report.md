@@ -18,7 +18,7 @@
 + Неуспешных: 8+8.
 
 
-![Allure Report](Screenshot_6.png)
+![](file:///C:/Users/Liliya/Documents/Lightshot/Screenshot_6.png)
 
 
 
